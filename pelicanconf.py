@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'qinfengling'
 AUTHOR_EMAIL = u'Fengling.Qin@gmail.com'
-SITENAME = u'qinfenging.github.io'
+SITENAME = u'qinfengling.github.io'
 SITEURL = ''
 
 GITHUB_USER = u'qinfengling'
