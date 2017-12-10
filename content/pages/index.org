@@ -1,0 +1,15 @@
+#+OPTIONS: toc:nil
+#+TITLE: About Qin Fengling
+#+AUTHOR: qinfengling
+#+PROPERTY: LANGUAGE en
+#+PROPERTY: SAVE_AS index.html
+
+Qin Fengling is an Open Source Software Engineer working on embedded hardware systems and the Blockchain.
+
+He is the software firmware architect for Canaan Creative Avalon Bitcoin Miner for the Avalon 3, 4, 6, and 7 series computers.
+
+He is a contributor to OpenWRT, cgminer, and all Canaan Creative Avalon Open Source projects.
+
+He speaks internationally about Open Source, Embedded Systems, and the Blockchain.
+
+For fun, he writes code for FPGA, and other hardware projects.
