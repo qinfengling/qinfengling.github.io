@@ -2,22 +2,20 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = u'qinfengling'
+AUTHOR = u'Qin Fengling'
 AUTHOR_EMAIL = u'Fengling.Qin@gmail.com'
-SITENAME = u'qinfengling.github.io'
-SITEURL = ''
-
-GITHUB_USER = u'qinfengling'
-GITHUB_SKIP_FORK = True
+SITENAME = u'Qin Fengling'
+SITEURL = u'qinfengling.io'
 
 PATH = 'content'
 PAGE_PATHS = ['pages']
-ARTICLE_PATHS = ['htmls', 'mds', 'orgs', 'rsts']
 STATIC_PATHS = ['images']
 
 TIMEZONE = 'Asia/Shanghai'
 
 DEFAULT_LANG = u'en'
+
+DISPLAY_PAGES_ON_MENU = False
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -26,55 +24,24 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Blogroll
-LINKS = None
-
-# Social widget
-SOCIAL = (('GitHub', 'http://github.com/qinfengling'),
-        ('Twitter', 'http://twitter.com/qinfengling'),)
-
-DEFAULT_PAGINATION = 10
-
-# Menu
-MENUITEMS = [('home', "/"),
-('category', "/categories.html"),
-('tag', "/tags/index.html"),
-('about me', "/"),
-        ]
-# About me
-ABOUT_ME = ''
-
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
-THEME = u'/Users/mikeqin/Documents/virtualpc/share/CMS/pelican-themes/pelican-bootstrap3'
-PLUGIN_PATHS = ['/Users/mikeqin/Documents/virtualpc/share/CMS/pelican-plugins']
-PLUGINS = ['org_reader', 'gravatar']
+THEME = u'pelican-themes/pelican-bootstrap3'
+PLUGIN_PATHS = ['pelican-plugins', ]
+PLUGINS = ['i18n_subsites', 'org_reader']
+JINJA_ENVIRONMENT = {
+    'extensions': ['jinja2.ext.i18n'],
+}
 
-ORG_READER_EMACS_LOCATION = u'/Applications/Emacs.app/Contents/MacOS/Emacs'
+# Don't generate the following pages
+CATEGORIES_SAVE_AS = ''
+TAGS_SAVE_AS = ''
+AUTHORS_SAVE_AS = ''
+ARCHIVES_SAVE_AS = ''
 
-USE_FOLDER_AS_CATEGORY = False
-DISPLAY_CATEGORIES_ON_MENU = False
-DISPLAY_PAGES_ON_MENU = False
+ORG_READER_EMACS_LOCATION = u'/usr/local/bin/emacs'
 
-# Tag
-TAG_CLOUD_MAX_ITEMS = 10
-DISPLAY_TAGS_ON_SIDEBAR = True
-
-ARTICLE_URL = '{date:%Y}/{date:%-m}/{date:%-d}/{slug}/'
-ARTICLE_SAVE_AS = ARTICLE_URL + 'index.html'
-TAG_URL = 'tags/{slug}/'
-TAG_SAVE_AS = TAG_URL + 'index.html'
-TAGS_URL = 'tags/'
-TAGS_SAVE_AS = TAGS_URL + 'index.html'
-PAGE_URL = '{slug}.html'
-PAGE_SAVE_AS = '{slug}.html'
-ARCHIVES_URL = 'archive/'
-ARCHIVES_SAVE_AS = ARCHIVES_URL + 'index.html'
-CATEGORY_SAVE_AS = False
-
-YEAR_ARCHIVE_SAVE_AS = '{date:%Y}/index.html'
-MONTH_ARCHIVE_SAVE_AS = '{date:%Y}/{date:%-m}/index.html'
-AUTHOR_SAVE_AS = False
-AUTHORS_SAVE_AS = False
-
-CC_LICENSE = "CC-BY-NC-SA"
+# pelican-bootstrap3 settings
+HIDE_SIDEBAR = True
+BANNER_SUBTITLE = 'Qin Fengling.'
+BANNER_ALL_PAGES = True

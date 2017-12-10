@@ -33,10 +33,7 @@ ifeq ($(DEBUG), 1)
 	PELICANOPTS += -D
 endif
 
-RELATIVE ?= 0
-ifeq ($(RELATIVE), 1)
-	PELICANOPTS += --relative-urls
-endif
+PELICANOPTS += --relative-urls
 
 help:
 	@echo 'Makefile for a pelican Web site                                           '
