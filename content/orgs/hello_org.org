@@ -1,9 +1,0 @@
-#+title: Hello Org
-#+DATE: 2016-04-10 12:41
-#+PROPERTY: MODIFIED [2016-04-10 12:41]
-#+CATEGORY: Introduction
-#+PROPERTY: TAGS org
-#+AUTHOR: Fengling
-#+PROPERTY: SUMMARY Org demo
-
-Hello Org!
