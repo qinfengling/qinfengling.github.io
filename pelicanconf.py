@@ -9,7 +9,8 @@ SITEURL = u'qinfengling.io'
 
 PATH = 'content'
 PAGE_PATHS = ['pages']
-STATIC_PATHS = ['images']
+STATIC_PATHS = ['images', 'extra/CNAME']
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
 TIMEZONE = 'Asia/Shanghai'
 
