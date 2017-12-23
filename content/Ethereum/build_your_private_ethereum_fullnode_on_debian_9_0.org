@@ -1,0 +1,93 @@
+#+OPTIONS: toc:nil
+#+TITLE: Build your private ethereum fullnode on Debian 9.0 (Stretch)
+#+DATE: 2017-12-23
+#+AUTHOR: qinfengling
+#+PROPERTY: LANGUAGE en
+
+Ethereum is an open-source blockchain platform featuring smart contract functionality.
+
+If you want to try to learn the smart contract, the first of the important thing to do
+
+is install the ethereum fullnode. There are 3 type of networks: main network, public testnet
+
+and local private testnet. In this article, I will show you how to build a local private testnet
+
+from the scratch. You can also use the script to reproduce identical network with me.
+
+NOTE: The root directory for fullnode is ~/eth
+
+I will demo the commands in detail, you can issue them in the bash terminal.
+
+** Install tools from the beginning (*Need root password*)
+#+BEGIN_SRC bash
+sudo apt-get install -y build-essential git
+mkdir ~/eth
+cd ~/eth
+curl -O https://storage.googleapis.com/golang/go1.7.3.linux-amd64.tar.gz
+tar -xzf go1.7.3.linux-amd64.tar.gz
+#+END_SRC
+
+** Prepare the enviroment for fullnode compile
+#+BEGIN_SRC bash
+mkdir ~/eth/go-workspace
+export PATH=$PATH:~/eth/go/bin
+export GOPATH=~/eth/go-workspace
+export GOROOT=~/eth/go
+#+END_SRC
+
+** Clone & build fullnode from sourcecode (go-ethereum)
+#+BEGIN_SRC bash
+cd ~/eth
+git clone https://github.com/ethereum/go-ethereum
+cd go-ethereum
+make geth
+#+END_SRC
+
+** Build the private ethereum testnet
+#+BEGIN_SRC bash
+cd ~/eth
+export PATH=$PATH:~/eth/go-ethereum/build/bin
+mkdir ~/eth/myeth_data
+cat > myeth_genesis.json << EOL
+{
+    "nonce": "0x0000000000000042",
+    "timestamp": "0x00",
+    "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "extraData": "0x00",
+    "gasLimit": "0x8000000",
+    "difficulty": "0x400",
+    "mixhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coinbase": "0x3333333333333333333333333333333333333333",
+    "alloc": {
+     },
+     "config": {
+        "chainId": 15,
+        "homesteadBlock": 0,
+        "eip155Block": 0,
+        "eip158Block": 0
+    }
+}
+EOL
+geth --identity "myeth" --datadir ~/eth/myeth_data --rpc --rpccorsdomain "*" --rpcapi "db,eth,net,web3" --networkid 1024 init "./myeth_genesis.json"
+#+END_SRC
+
+** Start the fullnode console
+#+BEGIN_SRC bash
+geth --identity "myeth" --datadir ~/eth/myeth_data --networkid 1024 console
+#+END_SRC
+
+** Create account and start mining in the fullnode console
+#+BEGIN_SRC bash
+personal.newAccount("password"); /* change password to your own */
+miner.setEtherbase(personal.listAccounts[0])
+miner.start()
+#+END_SRC
+
+** Reference
+https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-Ubuntu
+
+https://github.com/ethereum/go-ethereum/wiki/Installing-Go#ubuntu-1404
+
+https://github.com/ethereum/go-ethereum/wiki/Private-network
+
+https://github.com/ethereum/go-ethereum/wiki/Management-APIs
