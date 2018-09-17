@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Build OpenWrt Image for Lichee Pi Nano - Qin Fengling</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./build_openwrt_image_for_licheepi_nano.html">
+
+        <meta name="author" content="qinfengling" />
+        <meta name="description" content="OpenWrt is an open source linux distribution for embedded devices, It has support a lot of hardwares, I got a new device called LiChee Pi Nano these days. So I just add a few patches and template in OpenWrt v18.06.1, it runs perfect well. This is the way …" />
+
+        <meta property="og:site_name" content="Qin Fengling" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Build OpenWrt Image for Lichee Pi Nano"/>
+        <meta property="og:url" content="./build_openwrt_image_for_licheepi_nano.html"/>
+        <meta property="og:description" content="OpenWrt is an open source linux distribution for embedded devices, It has support a lot of hardwares, I got a new device called LiChee Pi Nano these days. So I just add a few patches and template in OpenWrt v18.06.1, it runs perfect well. This is the way …"/>
+        <meta property="article:published_time" content="2018-09-17" />
+            <meta property="article:section" content="OpenWrt" />
+            <meta property="article:author" content="qinfengling" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+Qin Fengling            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="./category/ethereum.html">Ethereum</a>
+                        </li>
+                        <li class="active">
+                            <a href="./category/openwrt.html">Openwrt</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./build_openwrt_image_for_licheepi_nano.html"
+                       rel="bookmark"
+                       title="Permalink to Build OpenWrt Image for Lichee Pi Nano">
+                        Build OpenWrt Image for Lichee Pi Nano
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2018-09-17T00:00:00+08:00"> Mon 17 September 2018</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>
+OpenWrt is an open source linux distribution for embedded devices,
+</p>
+
+<p>
+It has support a lot of hardwares, I got a new device called LiChee Pi Nano these days.
+</p>
+
+<p>
+So I just add a few patches and template in OpenWrt v18.06.1, it runs perfect well.
+</p>
+
+<p>
+This is the way to compile the image from the source code.
+</p>
+
+<div id="outline-container-org5eca987" class="outline-2">
+<h2 id="org5eca987"><span class="section-number-2">1</span> Clone the source code</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="font-weight: bold;">cd</span> ~
+git clone -b licheepi-nano https://github.com/qinfengling/openwrt.git
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7e09ab8" class="outline-2">
+<h2 id="org7e09ab8"><span class="section-number-2">2</span> Update the configuration for Lichee Pi Nano</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="font-weight: bold;">cd</span> ~/openwrt
+cat &gt; .config &lt;&lt; EOL
+<span style="font-weight: bold;">CONFIG_TARGET_sunxi=y</span>
+<span style="font-weight: bold;">CONFIG_TARGET_sunxi_arm9=y</span>
+<span style="font-weight: bold;">CONFIG_TARGET_sunxi_arm9_DEVICE_suniv-f1c100s-licheepi-nano=y</span>
+<span style="font-weight: bold;">CONFIG_DEVEL=y</span>
+<span style="font-weight: bold;">CONFIG_BRCMFMAC_SDIO=y</span>
+<span style="font-weight: bold;">CONFIG_BRCMFMAC_USB=y</span>
+<span style="font-weight: bold;">CONFIG_DRIVER_11AC_SUPPORT=y</span>
+<span style="font-weight: bold;">CONFIG_DRIVER_11N_SUPPORT=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_MAC80211_DEBUGFS=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_MAC80211_MESH=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_brcmfmac-firmware-usb=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_hostapd-common=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_iw=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_iwinfo=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-ata-ahci-platform=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-ata-core=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-ata-sunxi=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-brcmfmac=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-brcmutil=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-cfg80211=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-libphy=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-mac80211=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-mmc=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-nls-base=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-of-mdio=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-rtc-sunxi=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-rtl8192c-common=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-rtl8192cu=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-rtl8xxxu=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-rtlwifi=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-rtlwifi-usb=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-scsi-core=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-sun4i-emac=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_kmod-usb-core=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_libiwinfo=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_rtl8188eu-firmware=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_rtl8192cu-firmware=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_swconfig=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_wireless-regdb=y</span>
+<span style="font-weight: bold;">CONFIG_PACKAGE_wpad-mini=y</span>
+<span style="font-weight: bold;">CONFIG_SOFT_FLOAT=y</span>
+<span style="font-weight: bold;">CONFIG_TARGET_OPTIONS=y</span>
+<span style="font-weight: bold;">EOL</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org80c8b2d" class="outline-2">
+<h2 id="org80c8b2d"><span class="section-number-2">3</span> Generate the image</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-bash">make world
+</pre>
+</div>
+
+<p>
+<b>TIP</b>: You can also speed up the compile with <i>-j</i> option.
+</p>
+
+<p>
+When you finish the compile without any failure, you can find the
+image (<i>openwrt-sunxi-arm9-suniv-f1c100s-licheepi-nano-ext4-sdcard.img.gz</i>) under <b>./bin/targets/sunxi/arm9/</b>,
+</p>
+
+<p>
+<b>NOTE</b>: <code>It is an image for TF card, you need to decompress it first, then write it to the TF card.</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org100e368" class="outline-2">
+<h2 id="org100e368"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> :</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li>Merge to the master branch</li>
+<li>Add / Del some functions (TBD)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgdb519c1" class="outline-2">
+<h2 id="orgdb519c1"><span class="section-number-2">5</span> Reference</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+<a href="https://wiki.openwrt.org/doc/howto/buildroot.exigence#prerequisites">https://wiki.openwrt.org/doc/howto/buildroot.exigence#prerequisites</a>
+</p>
+
+<p>
+<a href="https://medium.com/openwrt-iot/lede-openwrt-installing-firmware-on-a-raspberry-pi-f20af38071d5">https://medium.com/openwrt-iot/lede-openwrt-installing-firmware-on-a-raspberry-pi-f20af38071d5</a>
+</p>
+</div>
+</div>
+
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2018 Qin Fengling
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>
