@@ -41,6 +41,7 @@ AUTHORS_SAVE_AS = ''
 ARCHIVES_SAVE_AS = ''
 
 ORG_READER_EMACS_LOCATION = u'/usr/local/bin/emacs'
+ORG_READER_EMACS_SETTINGS = u'~/.emacs.d/init.el'
 
 # pelican-bootstrap3 settings
 HIDE_SIDEBAR = True
