@@ -126,8 +126,8 @@ NOTE: The root directory for fullnode is ~/eth
 I will demo the commands in detail, you can issue them in the bash terminal.
 </p>
 
-<div id="outline-container-orgfc88e89" class="outline-2">
-<h2 id="orgfc88e89"><span class="section-number-2">1</span> Install tools from the beginning (<b>Need root password</b>)</h2>
+<div id="outline-container-orgba6952d" class="outline-2">
+<h2 id="orgba6952d"><span class="section-number-2">1</span> Install tools from the beginning (<b>Need root password</b>)</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-bash">sudo apt-get install -y build-essential git
@@ -140,8 +140,8 @@ tar -xzf go1.7.3.linux-amd64.tar.gz
 </div>
 </div>
 
-<div id="outline-container-orga52ecc2" class="outline-2">
-<h2 id="orga52ecc2"><span class="section-number-2">2</span> Prepare the enviroment for fullnode compile</h2>
+<div id="outline-container-orgffafdcd" class="outline-2">
+<h2 id="orgffafdcd"><span class="section-number-2">2</span> Prepare the enviroment for fullnode compile</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-bash">mkdir ~/eth/go-workspace
@@ -153,8 +153,8 @@ tar -xzf go1.7.3.linux-amd64.tar.gz
 </div>
 </div>
 
-<div id="outline-container-org7a52c45" class="outline-2">
-<h2 id="org7a52c45"><span class="section-number-2">3</span> Clone &amp; build fullnode from sourcecode (go-ethereum)</h2>
+<div id="outline-container-org4eee709" class="outline-2">
+<h2 id="org4eee709"><span class="section-number-2">3</span> Clone &amp; build fullnode from sourcecode (go-ethereum)</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="font-weight: bold;">cd</span> ~/eth
@@ -166,8 +166,8 @@ make geth
 </div>
 </div>
 
-<div id="outline-container-org982dee1" class="outline-2">
-<h2 id="org982dee1"><span class="section-number-2">4</span> Build the private ethereum testnet</h2>
+<div id="outline-container-orga07d359" class="outline-2">
+<h2 id="orga07d359"><span class="section-number-2">4</span> Build the private ethereum testnet</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="font-weight: bold;">cd</span> ~/eth
@@ -199,8 +199,8 @@ geth --identity <span style="font-style: italic;">"myeth"</span> --datadir ~/eth
 </div>
 </div>
 
-<div id="outline-container-org6ec9dcd" class="outline-2">
-<h2 id="org6ec9dcd"><span class="section-number-2">5</span> Start the fullnode console</h2>
+<div id="outline-container-org73ba48f" class="outline-2">
+<h2 id="org73ba48f"><span class="section-number-2">5</span> Start the fullnode console</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-bash">geth --identity <span style="font-style: italic;">"myeth"</span> --datadir ~/eth/myeth_data --networkid 1024 console
@@ -209,8 +209,8 @@ geth --identity <span style="font-style: italic;">"myeth"</span> --datadir ~/eth
 </div>
 </div>
 
-<div id="outline-container-org905d340" class="outline-2">
-<h2 id="org905d340"><span class="section-number-2">6</span> Create account and start mining in the fullnode console</h2>
+<div id="outline-container-org8ade5e2" class="outline-2">
+<h2 id="org8ade5e2"><span class="section-number-2">6</span> Create account and start mining in the fullnode console</h2>
 <div class="outline-text-2" id="text-6">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="font-weight: bold;">personal.newAccount</span>(<span style="font-style: italic;">"password"</span>); /* change password to your own */
@@ -221,8 +221,8 @@ geth --identity <span style="font-style: italic;">"myeth"</span> --datadir ~/eth
 </div>
 </div>
 
-<div id="outline-container-org13b7519" class="outline-2">
-<h2 id="org13b7519"><span class="section-number-2">7</span> Reference</h2>
+<div id="outline-container-org4462012" class="outline-2">
+<h2 id="org4462012"><span class="section-number-2">7</span> Reference</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 <a href="https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-Ubuntu">https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-Ubuntu</a>
