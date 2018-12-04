@@ -16,3 +16,8 @@ I speak internationally about Open Source, Embedded Systems, and the Blockchain.
 For fun, I write code for FPGA, and other hardware projects.
 
 For now, I am contributing to the Proof of Existence project.
+
+- My slides
+	+ [[https://www.slideshare.net/MikeQin4/blockchain-software-for-hardware-the-canaan-avalon-miner-open-source-embedded-system][Blockchain Software for Hardware: The Canaan AvalonMiner Open Source Embedded System]]@FOSSASIA 2017
+
+	+ [[https://www.slideshare.net/MikeQin4/hello-blockchain-evolution-of-cryptocurrency-mining][Hello blockchain: Evolution of cryptocurrency mining]]@FOSSASIA 2018
