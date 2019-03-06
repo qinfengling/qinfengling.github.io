@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 AUTHOR = u'Qin Fengling'
 AUTHOR_EMAIL = u'Fengling.Qin@gmail.com'
 SITENAME = u'Qin Fengling'
-SITEURL = u'qinfengling.io'
+SITEURL = u'qinfengling.pro'
 
 PATH = 'content'
 PAGE_PATHS = ['pages']
