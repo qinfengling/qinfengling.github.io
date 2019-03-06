@@ -69,6 +69,8 @@ EOL
 
 ** Generate the image
 #+BEGIN_SRC bash
+./scripts/feeds update -a && ./scripts/feeds install -a
+make defconfig
 make world
 #+END_SRC
 
